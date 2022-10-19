@@ -2,7 +2,7 @@ export const Application = () => {
   return (
       <>
       <h1>Job Application Form</h1>
-      <h2>Section 1</h2>
+      <h2>Section 97</h2>
 
     <form>
       <div>
