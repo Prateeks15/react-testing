@@ -51,6 +51,18 @@ describe('Application', () => {
        }); 
        expect(nameElement).toBeInTheDocument();
        
+    // getByLabelText will search for the label that matches the given text,then find the element associated with that label tag
+      const nameElement2 = screen.getByLabelText('Name',{
+          //filter multiple label tag innerText using html element type 
+          selector: 'input',
+
+      });  
+      expect(nameElement2).toBeInTheDocument();
+
+    //   getByPlaceholder Text will search for all elements with a placeholder attribute and find one that matches the given text
+    const nameElement3 = screen.getByPlaceholderText('FullName');  
+    expect(nameElement3).toBeInTheDocument();
+
        //label for textarea
        const bioElement = screen.getByRole('textbox',{
            name: 'Bio'
@@ -64,6 +76,22 @@ describe('Application', () => {
        //used for check if checkbox tag is present i.e input type checkbox
        const termsElement = screen.getByRole('checkbox');
        expect(termsElement).toBeInTheDocument();
+         
+       const termsElement2 = screen.getByLabelText('I agree to the terms and conditions');
+       expect(termsElement2).toBeInTheDocument();
+        
+    // getByText will search for all elements that have a text node with textContent matching the given text Typically,you'd use this to find paragraph, div or span elements
+    //you can use selector option to filter using html element type for getBytext i.e p or span tag.
+    const paragraphElement = screen.getByText('All field are Mandatory')      
+    expect(paragraphElement).toBeInTheDocument();
+          
+      //getBytitle is for getting elements having title attr for eg in span   
+      const closeElement = screen.getByTitle('close');
+      expect(closeElement).toBeInTheDocument();
+
+      //getByTestId is for getting elements having data-testid attr for eg in div   
+      const customElement = screen.getByTestId('custom-element');
+      expect(customElement).toBeInTheDocument();
 
        //check if button is present
        const submitButtonElement = screen.getByRole('button');
@@ -71,5 +99,5 @@ describe('Application', () => {
        
     });
 
-    
+  
 })
